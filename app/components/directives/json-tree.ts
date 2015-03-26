@@ -15,7 +15,6 @@ module Jss.Demo.TreeSnippet.Directives.JsonTree {
                 tree: '='
             },
             link: ($scope:ITreeScope, $element, $attrs)=> {
-                console.log($scope.tree.getRootNode());
             },
             templateUrl: 'views/directives/json-tree.html'
         };

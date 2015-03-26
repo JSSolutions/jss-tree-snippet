@@ -27,7 +27,7 @@ var Jss;
                         return new TreeNode(found);
                     };
                     Tree.prototype.getChildNodesOf = function (node) {
-                        return this.tree.filter(function (node) { return node.parentId === node.id; });
+                        return this.tree.filter(function (child) { return child.parentId === node.id; });
                     };
                     Tree.prototype.getRootNode = function () {
                         return this.findFirst(function (node) { return node.parentId === -1; });

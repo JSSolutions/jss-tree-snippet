@@ -44,7 +44,7 @@ module Jss.Demo.TreeSnippet.Common {
         }
 
         public getChildNodesOf(node:ITreeNode):INodeArray {
-            return this.tree.filter(node=>node.parentId === node.id);
+            return this.tree.filter(child=>child.parentId === node.id);
         }
 
         public getRootNode():ITreeNode {

@@ -19,7 +19,6 @@ var Jss;
                                 tree: '='
                             },
                             link: function ($scope, $element, $attrs) {
-                                console.log($scope.tree.getRootNode());
                             },
                             templateUrl: 'views/directives/json-tree.html'
                         };
