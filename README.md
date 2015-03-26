@@ -5,9 +5,10 @@ Each node can be edited in-line (or in-place) by double-clicking on it. The labe
 
 Some nodes can accept only numerical values (specified in JSON as a type property).
 
-Some examples of nodes: {id: 123, label: 'root', parentId: -1}, {id:1234, label: 'child', parentId: 123}, {id: 12345, label: 'numbers only', parentId: 1234, type: N}
++Some examples of nodes: {id: 123, label: 'root', parentId: -1}, {id:1234, label: 'child', parentId: 123}, {id: 12345, label: 'numbers only', parentId: 1234, type: N}
 
-The nodes should accept updates from outside (values, parent/position) and the tree should update accordingly: getNodeWithId(1234).setParentId(123)
++The nodes should accept updates from outside (values, parent/position) and the tree should
+update accordingly: getNodeWithId(1234).setParentId(123)
 
 The modified tree can be saved back to a JSON.
 

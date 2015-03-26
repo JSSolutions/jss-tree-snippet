@@ -3,16 +3,19 @@
 
 module Jss.Demo.TreeSnippet.Directives.JsonTree {
     'use strict';
+    interface ITreeScope extends angular.IScope {
+        tree: Common.Tree;
+    }
 
     function GetJsonTree():angular.IDirective {
         return {
             restrict: 'EA',
             replace: false,
             scope: {
-                json: '='
+                tree: '='
             },
-            link: ($scope, $element, $attrs)=> {
-
+            link: ($scope:ITreeScope, $element, $attrs)=> {
+                console.log($scope.tree.getRootNode());
             },
             templateUrl: 'views/directives/json-tree.html'
         };

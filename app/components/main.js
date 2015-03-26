@@ -8,11 +8,12 @@ var Jss;
         (function (TreeSnippet) {
             'use strict';
             angular.module(TreeSnippet.Common.appName, []).controller('MainController', function ($scope) {
-                $scope.tree = [
-                    { id: 1, label: 'root', parentId: -1 },
-                    { id: 2, label: 'child', parentId: 1 },
-                    { id: 3, label: '3.14', parentId: 1, type: 'number' }
+                var defaultTreeData = [
+                    { id: 1, value: 'root', parentId: -1 },
+                    { id: 2, value: 'child', parentId: 1 },
+                    { id: 3, value: '3.14', parentId: 1, type: 'number' }
                 ];
+                $scope.tree = new TreeSnippet.Common.Tree(defaultTreeData);
             });
         })(TreeSnippet = Demo.TreeSnippet || (Demo.TreeSnippet = {}));
     })(Demo = Jss.Demo || (Jss.Demo = {}));

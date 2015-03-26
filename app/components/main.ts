@@ -5,13 +5,14 @@ module Jss.Demo.TreeSnippet {
 
     angular.module(Common.appName, [])
         .controller('MainController', ($scope)=> {
-            $scope.tree =
+            var defaultTreeData =
                 [
-                    {id: 1, label: 'root', parentId: -1},
-                    {id: 2, label: 'child', parentId: 1},
-                    {id: 3, label: '3.14', parentId: 1, type: 'number'}
-                ]
-            ;
+                    {id: 1, value: 'root', parentId: -1},
+                    {id: 2, value: 'child', parentId: 1},
+                    {id: 3, value: '3.14', parentId: 1, type: 'number'}
+                ];
+
+            $scope.tree = new Common.Tree(defaultTreeData);
         });
 
 
