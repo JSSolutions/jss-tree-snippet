@@ -24,3 +24,22 @@ body {
     font-weight: bold;
 }
 
+json-tree > div {
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.tree-value{
+    cursor: text;
+    display: inline-block;
+    background: #DDD;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 0 5px;
+    margin: 3px;
+}
+.child-nodes{
+    margin-left: 15px;
+}
+

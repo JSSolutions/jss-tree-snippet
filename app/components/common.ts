@@ -73,4 +73,8 @@ module Jss.Demo.TreeSnippet.Common {
         (element:ITreeNode):boolean;
     }
 
+    export  interface IActionHandler {
+        (event:any):void;
+    }
+
 }

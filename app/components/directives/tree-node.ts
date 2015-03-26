@@ -8,11 +8,13 @@ module Jss.Demo.TreeSnippet.Directives.TreeNode {
         node: Common.ITreeNode;
         tree: Common.Tree;
         childNodes: Common.INodeArray;
+        isEditing: boolean;
     }
 
-    var childNodesTemplate = '<div class="child-nodes"><tree-node ng-repeat="child in childNodes" current="child" tree="tree"></tree-node></div>';
+    var childNodesTemplate =
+        '<div class="child-nodes"><tree-node ng-repeat="child in childNodes" current="child" tree="tree"></tree-node></div>';
 
-    function GetTreeNode($compile):angular.IDirective {
+    function GetTreeNode($compile, $timeout):angular.IDirective {
         return {
             restrict: 'EA',
             replace: false,
@@ -22,10 +24,8 @@ module Jss.Demo.TreeSnippet.Directives.TreeNode {
             },
             link: ($scope:ITreeNodeScope, $element, $attrs)=> {
                 $scope.$watch('node', (newNode)=> {
-                    //console.log(newNode);
                     $scope.childNodes = $scope.tree.getChildNodesOf($scope.node);
 
-                    console.log($element.children().children(".child-nodes"));
                     $element.children(".child-nodes").remove();
 
                     if (angular.isArray($scope.childNodes) && $scope.childNodes.length > 0) {
@@ -34,13 +34,26 @@ module Jss.Demo.TreeSnippet.Directives.TreeNode {
                     }
                 });
 
+                $element.find('.tree-label').dblclick(()=> {
+                    $timeout(()=> {
+                        $scope.isEditing = true;
+                        $timeout(()=> {
+                            $element.find('.label-input').focus();
+                        }, 0);
+                    }, 0);
+                });
 
+                $element.find('.label-input').blur(()=> {
+                    $timeout(()=> {
+                        $scope.isEditing = false;
+                    }, 0);
+                });
             },
             templateUrl: 'views/directives/tree-node.html'
         };
     }
 
-    GetTreeNode.$inject = ['$compile'];
+    GetTreeNode.$inject = ['$compile', '$timeout'];
 
     angular.module(Common.appName).directive('treeNode', GetTreeNode);
 }

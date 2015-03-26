@@ -1,3 +1,6 @@
 <div class="tree-node">
-    <div class="tree-value">{{node.value}}</div>
+    <div class="tree-value">
+        <span ng-bind="node.value" ng-hide="isEditing" class="tree-label"></span>
+        <input ng-show="isEditing"  type="text" ng-model="node.value" class="label-input" placeholder="Enter label">
+    </div>
 </div>
