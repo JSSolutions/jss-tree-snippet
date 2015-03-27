@@ -1,6 +1,18 @@
 <div class="tree-node">
     <div class="tree-value">
         <span ng-bind="node.value" ng-hide="isEditing" class="tree-label"></span>
-        <input ng-show="isEditing"  type="text" ng-model="node.value" class="label-input" placeholder="Enter label">
+
+        <input ng-if="!node.type||node.type==='text'" ng-show="isEditing" type="text"
+               ng-model="node.value" class="label-input"
+               placeholder="Enter label" outside-click="onInputBlur()">
+
+        <input ng-if="node.type==='number'" ng-show="isEditing" type="number" ng-model="node.value" class="label-input"
+               placeholder="Enter number" outside-click="onInputBlur()">
+
+        <div ng-if="node.type==='options'" ng-show="isEditing">
+            <select ng-options="item for item in node.options"
+                    ng-model="node.value"></select>
+            <button ng-click="onInputBlur()">x</button>
+        </div>
     </div>
 </div>

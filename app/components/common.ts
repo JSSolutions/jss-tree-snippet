@@ -12,6 +12,7 @@ module Jss.Demo.TreeSnippet.Common {
         parentId: number;
         value: number|string;
         type?: string;
+        options?: Array<number|string>;
     }
 
     /**
@@ -44,7 +45,7 @@ module Jss.Demo.TreeSnippet.Common {
         }
 
         public getChildNodesOf(node:ITreeNode):INodeArray {
-            return this.tree.filter(child=>child.parentId === node.id);
+            return <INodeArray>this.tree.filter(child=>child.parentId === node.id);
         }
 
         public getRootNode():ITreeNode {

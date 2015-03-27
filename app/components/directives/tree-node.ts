@@ -9,6 +9,7 @@ module Jss.Demo.TreeSnippet.Directives.TreeNode {
         tree: Common.Tree;
         childNodes: Common.INodeArray;
         isEditing: boolean;
+        onInputBlur: Common.IActionHandler;
     }
 
     var childNodesTemplate =
@@ -32,22 +33,21 @@ module Jss.Demo.TreeSnippet.Directives.TreeNode {
                         $element.append(childNodesTemplate);
                         $compile($element.contents())($scope);
                     }
-                });
 
-                $element.find('.tree-label').dblclick(()=> {
-                    $timeout(()=> {
-                        $scope.isEditing = true;
+                    $element.find('.tree-label').dblclick(()=> {
                         $timeout(()=> {
-                            $element.find('.label-input').focus();
+                            $scope.isEditing = true;
+                            $timeout(()=> {
+                                $element.find('.label-input').focus();
+                            }, 0);
                         }, 0);
-                    }, 0);
+                    });
+
+                    $scope.onInputBlur = ()=> {
+                        $scope.isEditing = false;
+                    };
                 });
 
-                $element.find('.label-input').blur(()=> {
-                    $timeout(()=> {
-                        $scope.isEditing = false;
-                    }, 0);
-                });
             },
             templateUrl: 'views/directives/tree-node.html'
         };

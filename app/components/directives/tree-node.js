@@ -28,19 +28,17 @@ var Jss;
                                         $element.append(childNodesTemplate);
                                         $compile($element.contents())($scope);
                                     }
-                                });
-                                $element.find('.tree-label').dblclick(function () {
-                                    $timeout(function () {
-                                        $scope.isEditing = true;
+                                    $element.find('.tree-label').dblclick(function () {
                                         $timeout(function () {
-                                            $element.find('.label-input').focus();
+                                            $scope.isEditing = true;
+                                            $timeout(function () {
+                                                $element.find('.label-input').focus();
+                                            }, 0);
                                         }, 0);
-                                    }, 0);
-                                });
-                                $element.find('.label-input').blur(function () {
-                                    $timeout(function () {
+                                    });
+                                    $scope.onInputBlur = function () {
                                         $scope.isEditing = false;
-                                    }, 0);
+                                    };
                                 });
                             },
                             templateUrl: 'views/directives/tree-node.html'
