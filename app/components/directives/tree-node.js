@@ -30,7 +30,7 @@ var Jss;
                                     }
                                     $element.find('.tree-label').dblclick(function () {
                                         $timeout(function () {
-                                            $scope.isEditing = true;
+                                            !$scope.node.disabled && ($scope.isEditing = true);
                                             $timeout(function () {
                                                 $element.find('.label-input').focus();
                                             }, 0);

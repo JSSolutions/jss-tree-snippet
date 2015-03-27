@@ -1,12 +1,14 @@
 <div class="tree-node">
-    <div class="tree-value">
-        <span ng-bind="node.value" ng-hide="isEditing" class="tree-label"></span>
+    <div class="tree-value" ng-class="{'disabled':node.disabled}">
+        <span ng-bind="node.value" ng-hide="isEditing&&!node.disabled"
+              class="tree-label"></span>
 
         <input ng-if="!node.type||node.type==='text'" ng-show="isEditing" type="text"
                ng-model="node.value" class="label-input"
                placeholder="Enter label" outside-click="onInputBlur()">
 
-        <input ng-if="node.type==='number'" ng-show="isEditing" type="number" ng-model="node.value" class="label-input"
+        <input ng-if="node.type==='number'" ng-show="isEditing" type="number" ng-model="node.value"
+               class="label-input"
                placeholder="Enter number" outside-click="onInputBlur()">
 
         <div ng-if="node.type==='options'" ng-show="isEditing">

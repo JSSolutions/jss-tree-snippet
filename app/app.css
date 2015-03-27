@@ -1,5 +1,5 @@
 body {
-    background: #F1FFF7;;
+    background: #F1FFF7;
 }
 
 .row {
@@ -30,16 +30,26 @@ json-tree > div {
     border-radius: 5px;
 }
 
-.tree-value{
+.tree-value {
     cursor: text;
     display: inline-block;
-    background: #DDD;
+    background: -webkit-linear-gradient(-90deg, #CCC, #ffffff);
     border: 1px solid gray;
     border-radius: 3px;
     padding: 0 5px;
     margin: 3px;
 }
-.child-nodes{
+
+.child-nodes {
     margin-left: 15px;
+}
+
+.tree-value.disabled {
+    background: white;
+    cursor: not-allowed;
+}
+
+.tree-wrapper {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3) inset;
 }
 

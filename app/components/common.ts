@@ -13,6 +13,7 @@ module Jss.Demo.TreeSnippet.Common {
         value: number|string;
         type?: string;
         options?: Array<number|string>;
+        disabled?: boolean;
     }
 
     /**

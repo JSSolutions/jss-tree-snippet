@@ -36,7 +36,7 @@ module Jss.Demo.TreeSnippet.Directives.TreeNode {
 
                     $element.find('.tree-label').dblclick(()=> {
                         $timeout(()=> {
-                            $scope.isEditing = true;
+                            !$scope.node.disabled && ($scope.isEditing = true);
                             $timeout(()=> {
                                 $element.find('.label-input').focus();
                             }, 0);
